@@ -9,7 +9,7 @@ import { Icon } from '@rneui/themed';
 function LoginField(){
 
   return(
-<View style={{marginTop:40}}>
+<View style={{marginTop:110}}>
 <View style={{ backgroundColor:'white',
 borderRadius:20,
 height:60,
@@ -20,7 +20,7 @@ paddingLeft:20
 <TextInput placeholder='Your Email' 
 placeholderTextColor={'#265CA5'}
 style={{
-  fontSize:20
+  fontSize:15
 }}
 />
 
@@ -37,12 +37,13 @@ marginTop:20
 <TextInput placeholder='Password' 
 placeholderTextColor={'#265CA5'}
 style={{
-  fontSize:20
+  fontSize:15
 }}
 />
 
 </View>
 <SingnInButton/>
+<BottomSection/>
 </View>
 
   );
@@ -55,7 +56,7 @@ function SingnInButton() {
 
 
       <View style={{height:70, flex:1, justifyContent:'center'}}>
-<Text style={{fontSize:25, color:'black',marginLeft:50,fontWeight:'500'}}>Sign In</Text>
+<Text style={{fontSize:25, color:'black',marginLeft:50,fontWeight:'800'}}>Sign In</Text>
       </View>
       <View style={{height:70, flex:1,justifyContent:'center',alignItems:'flex-end'}}>
 
@@ -71,6 +72,25 @@ function SingnInButton() {
   );
 
 }
+
+function BottomSection() {
+  return(
+    <View style={{flexDirection:'row' ,marginTop:40}}>
+
+
+      <View style={{height:70, flex:1, justifyContent:'center'}}>
+<Text style={{fontSize:18, color:'black',marginLeft:50,fontWeight:'400'}}>Sign Up</Text>
+      </View>
+
+      <View style={{height:70, flex:1, justifyContent:'center',alignItems:'flex-end'}}>
+<Text style={{fontSize:15, color:'red',marginRight:50,fontWeight:'800'}}>Forget Password</Text>
+      </View> 
+     
+    </View>
+  );
+
+}
+
 
 function App(): React.JSX.Element {
   return (
