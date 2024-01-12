@@ -1,5 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, Image, Text, TextInput } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Icon } from '@rneui/themed';
+
 
 
 
@@ -39,24 +42,51 @@ style={{
 />
 
 </View>
-
+<SingnInButton/>
 </View>
 
   );
 }
 
 
+function SingnInButton() {
+  return(
+    <View style={{flexDirection:'row' ,marginTop:20}}>
+
+
+      <View style={{height:70, flex:1, justifyContent:'center'}}>
+<Text style={{fontSize:25, color:'black',marginLeft:50,fontWeight:'500'}}>Sign In</Text>
+      </View>
+      <View style={{height:70, flex:1,justifyContent:'center',alignItems:'flex-end'}}>
+
+<View style={{width:50,height:50,backgroundColor:'#367cfe',marginRight:50 ,borderRadius:100
+,justifyContent:'center',alignItems:'center'}}>
+<Icon size={50} color={'white'} name={'chevron-right'} type='FontAwesome'/>
+
+</View>
+
+      </View>
+     
+    </View>
+  );
+
+}
+
 function App(): React.JSX.Element {
   return (
     <View style={styles.container}>
-      <Image
+
+    <Image
         style={styles.image}
         source={require('./assets/img/balo.jpg')}
         resizeMode='cover'
       />
 
       <Text style={styles.welText}>{'Welcome\nBack'}</Text>
+     
+      <KeyboardAwareScrollView keyboardShouldPersistTaps={'never'}>
       <LoginField/>
+    </KeyboardAwareScrollView>
     </View>
   );
 }
