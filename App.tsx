@@ -4,13 +4,18 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { Icon } from '@rneui/themed';
 import LoginScreen from './src/screens/LoginScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigation from './src/navigation/AppNavigation';
 
 function App(): React.JSX.Element {
   return (
     <View style={styles.container}>
 
  {/* <LoginScreen/> */}
- <SignUpScreen/>
+ 
+ {/* <SignUpScreen/> */}
+
+ <AppNavigation/>
     </View>
   );
 }
