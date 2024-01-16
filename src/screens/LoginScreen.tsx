@@ -2,10 +2,13 @@ import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Icon } from '@rneui/themed';
+import { TouchableOpacity } from 'react-native';
 
 
 
-function LoginField(){
+function LoginField(props:any){
+
+    const stack=props.stack;
 
     return(
   <View style={{marginTop:110}}>
@@ -42,7 +45,7 @@ function LoginField(){
   
   </View>
   <SingnInButton/>
-  <BottomSection/>
+  <BottomSection stack={stack}/>
   </View>
   
     );
@@ -74,15 +77,23 @@ function SingnInButton() {
   
   }
   
-  function BottomSection() {
+  function BottomSection(props:any) {
+    const stack=props.stack;
+
+function gotoSignUp(){
+stack.navigate('SignUp')
+}
+
     return(
+   
       <View style={{flexDirection:'row' ,marginTop:40}}>
   
-  
+       <TouchableOpacity onPress={gotoSignUp}>
+
         <View style={{height:70, flex:1, justifyContent:'center'}}>
   <Text style={{fontSize:18, color:'black',marginLeft:50,fontWeight:'400'}}>Sign Up</Text>
         </View>
-  
+        </TouchableOpacity>
         <View style={{height:70, flex:1, justifyContent:'center',alignItems:'flex-end'}}>
   <Text style={{fontSize:15, color:'red',marginRight:50,fontWeight:'800'}}>Forget Password</Text>
         </View> 
@@ -93,7 +104,10 @@ function SingnInButton() {
   }
   
 
-const LoginScreen = () => {
+const LoginScreen = (props:any) => {
+
+    const stack=props.navigation;
+
   return (
     
         <View style={styles.container}>
@@ -107,7 +121,7 @@ const LoginScreen = () => {
           <Text style={styles.welText}>{'Welcome\nBack'}</Text>
          
           <KeyboardAwareScrollView keyboardShouldPersistTaps={'never'}>
-          <LoginField/>
+          <LoginField stack={stack}/>
         </KeyboardAwareScrollView>
         </View>
       
