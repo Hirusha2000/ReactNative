@@ -5,10 +5,10 @@ import { Icon } from '@rneui/themed';
 
 
 
-function LoginField(){
+function SignUpSection(){
 
     return(
-  <View style={{marginTop:110}}>
+  <View style={{marginTop:20}}>
   <View style={{ backgroundColor:'white',
   borderRadius:20,
   height:60,
@@ -16,7 +16,7 @@ function LoginField(){
   justifyContent:'center',
   paddingLeft:20
   }}>
-  <TextInput placeholder='Your Email' 
+  <TextInput placeholder='Name' 
   placeholderTextColor={'#265CA5'}
   style={{
     fontSize:15
@@ -33,6 +33,23 @@ function LoginField(){
   paddingLeft:20,
   marginTop:20
   }}>
+  <TextInput placeholder='Your Email' 
+  placeholderTextColor={'#265CA5'}
+  style={{
+    fontSize:15
+  }}
+  />
+  
+  </View>
+
+  <View style={{ backgroundColor:'white',
+  borderRadius:20,
+  height:60,
+  marginHorizontal:30,
+  justifyContent:'center',
+  paddingLeft:20,
+  marginTop:20
+  }}>
   <TextInput placeholder='Password' 
   placeholderTextColor={'#265CA5'}
   style={{
@@ -41,7 +58,7 @@ function LoginField(){
   />
   
   </View>
-  <SingnInButton/>
+ <SingnUpButton/>
   <BottomSection/>
   </View>
   
@@ -51,13 +68,13 @@ function LoginField(){
 
 
   
-function SingnInButton() {
+function SingnUpButton() {
     return(
       <View style={{flexDirection:'row' ,marginTop:20}}>
   
   
         <View style={{height:70, flex:1, justifyContent:'center'}}>
-  <Text style={{fontSize:25, color:'black',marginLeft:50,fontWeight:'800'}}>Sign In</Text>
+  <Text style={{fontSize:25, color:'black',marginLeft:50,fontWeight:'800'}}>Sign Up</Text>
         </View>
         <View style={{height:70, flex:1,justifyContent:'center',alignItems:'flex-end'}}>
   
@@ -76,15 +93,12 @@ function SingnInButton() {
   
   function BottomSection() {
     return(
-      <View style={{flexDirection:'row' ,marginTop:40}}>
+      <View style={{flexDirection:'row' ,marginTop:20}}>
   
-  
-        <View style={{height:70, flex:1, justifyContent:'center'}}>
-  <Text style={{fontSize:18, color:'black',marginLeft:50,fontWeight:'400'}}>Sign Up</Text>
-        </View>
+
   
         <View style={{height:70, flex:1, justifyContent:'center',alignItems:'flex-end'}}>
-  <Text style={{fontSize:15, color:'red',marginRight:50,fontWeight:'800'}}>Forget Password</Text>
+  <Text style={{fontSize:15, color:'red',marginRight:50,fontWeight:'800'}}>Sign In</Text>
         </View> 
        
       </View>
@@ -93,7 +107,7 @@ function SingnInButton() {
   }
   
 
-const LoginScreen = () => {
+const SignUpScreen = () => {
   return (
     
         <View style={styles.container}>
@@ -104,17 +118,17 @@ const LoginScreen = () => {
             resizeMode='cover'
           />
     
-          <Text style={styles.welText}>{'Welcome\nBack'}</Text>
+          <Text style={styles.welText}>{'Create\nAccount'}</Text>
          
           <KeyboardAwareScrollView keyboardShouldPersistTaps={'never'}>
-          <LoginField/>
+          <SignUpSection/>
         </KeyboardAwareScrollView>
         </View>
       
   )
 }
 
-export default LoginScreen
+export default SignUpScreen
 
 const styles = StyleSheet.create({
     container: {
