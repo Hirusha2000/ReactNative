@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Icon } from '@rneui/themed';
 import { TouchableOpacity } from 'react-native';
@@ -9,6 +9,10 @@ import { TouchableOpacity } from 'react-native';
 function LoginField(props:any){
 
     const stack=props.stack;
+
+    const[userEmail,setUserEmail]=useState('');
+    const[userPassword,setUserPassword]=useState('');
+
 
     return(
   <View style={{marginTop:110}}>
@@ -21,6 +25,7 @@ function LoginField(props:any){
   }}>
   <TextInput placeholder='Your Email' 
   placeholderTextColor={'#265CA5'}
+  onChangeText={(v)=>setUserEmail(v)}
   style={{
     fontSize:15
   }}
@@ -37,14 +42,16 @@ function LoginField(props:any){
   marginTop:20
   }}>
   <TextInput placeholder='Password' 
+  secureTextEntry={true}
   placeholderTextColor={'#265CA5'}
+  onChangeText={(v)=>setUserPassword(v)}
   style={{
     fontSize:15
   }}
   />
   
   </View>
-  <SingnInButton/>
+  <SingnInButton u_email={userEmail} u_password={userPassword} s_stack={stack}/>
   <BottomSection stack={stack}/>
   </View>
   
@@ -54,7 +61,25 @@ function LoginField(props:any){
 
 
   
-function SingnInButton() {
+function SingnInButton(p:any) {
+
+
+const u_email=p.u_email;
+const u_password=p.u_password;
+
+const email='abc@gmail.com';
+const password='12345';
+
+
+  function gotoHome(){
+    if(u_email==email &&  u_password==password ){
+
+  
+p.s_stack.navigate('Home')
+} else{
+  console.log('Incorrect Password or Email');
+}
+  }
     return(
       <View style={{flexDirection:'row' ,marginTop:20}}>
   
@@ -64,11 +89,14 @@ function SingnInButton() {
         </View>
         <View style={{height:70, flex:1,justifyContent:'center',alignItems:'flex-end'}}>
   
-  <View style={{width:50,height:50,backgroundColor:'#367cfe',marginRight:50 ,borderRadius:100
+ <TouchableOpacity activeOpacity={0.7} onPress={gotoHome}>
+
+ <View style={{width:50,height:50,backgroundColor:'#367cfe',marginRight:50 ,borderRadius:100
   ,justifyContent:'center',alignItems:'center'}}>
   <Icon size={50} color={'white'} name={'chevron-right'} type='FontAwesome'/>
   
   </View>
+ </TouchableOpacity>
   
         </View>
        

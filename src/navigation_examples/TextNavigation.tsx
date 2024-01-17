@@ -11,9 +11,9 @@ const TextNavigation = () => {
   return (
    <NavigationContainer>
 <Stack.Navigator>
-<Stack.Screen name='MainScreen' component={MainScreen}/>
-<Stack.Screen name='ScreenA' component={ScreenA}/>
-<Stack.Screen name='ScreenB' component={ScreenB}/>
+<Stack.Screen name='Main' component={MainScreen}/>
+<Stack.Screen name='A' component={ScreenA}/>
+<Stack.Screen name='B' component={ScreenB}/>
 
 
 </Stack.Navigator>

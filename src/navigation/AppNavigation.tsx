@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
+import HomePage from '../screens/HomePage';
 
 
 const Stack = createStackNavigator();
@@ -22,6 +23,7 @@ const AppNavigation = () => {
       <Stack.Screen name="SignUp" component={SignUpScreen} options={{
         cardStyleInterpolator:CardStyleInterpolators.forBottomSheetAndroid
       }} />
+      <Stack.Screen name='Home' component={HomePage}/>
       
 
     </Stack.Navigator>

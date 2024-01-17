@@ -11,6 +11,7 @@ p.navigattion.goBack();
     function gotoScreenB(){
         p.navigattion.navigate('B')
             }
+            
   return (
     <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
       <Text style={{fontSize:30,color:'red',}}>ScreenA</Text>
