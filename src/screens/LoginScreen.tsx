@@ -1,8 +1,10 @@
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Alert, Image, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Icon } from '@rneui/themed';
+import { Icon, ThemeConsumer } from '@rneui/themed';
 import { TouchableOpacity } from 'react-native';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../firebase/firebaseinit';
 
 
 
@@ -15,7 +17,7 @@ function LoginField(props:any){
 
 
     return(
-  <View style={{marginTop:110}}>
+  <View style={{marginTop:30}}>
   <View style={{ backgroundColor:'white',
   borderRadius:20,
   height:60,
@@ -60,6 +62,7 @@ function LoginField(props:any){
   
 
 
+
   
 function SingnInButton(p:any) {
 
@@ -67,18 +70,51 @@ function SingnInButton(p:any) {
 const u_email=p.u_email;
 const u_password=p.u_password;
 
-const email='abc@gmail.com';
-const password='12345';
+
+
+
+function getUser (){
+  getDocs(
+    query(
+      collection(db,'Users')
+      ,where('email','==',u_email.toLowerCase()))) 
+      .then(ds=>{
+if(ds.size==1){
+  const dt =ds.docs[0].data();
+
+  Alert.alert (dt.password);
+
+  if(dt.password==u_password){
+    p.s_stack.navigate('Home')
+  } else{
+    Alert .alert('Message','Incorrect Password or Email')
+  }
+
+}else{
+
+  Alert .alert('Message',"Can't find user!")
+}
+
+      })
+
+}
+
 
 
   function gotoHome(){
-    if(u_email==email &&  u_password==password ){
+//     if(u_email.toLowerCase()==email &&  u_password==password ){
 
   
-p.s_stack.navigate('Home')
-} else{
-  console.log('Incorrect Password or Email');
-}
+// p.s_stack.navigate('Home')
+// } else{
+
+//   Alert .alert('Message','Incorrect Password or Email')
+//   console.log('Incorrect Password or Email');
+// }
+
+getUser();
+
+
   }
     return(
       <View style={{flexDirection:'row' ,marginTop:20}}>
@@ -114,7 +150,7 @@ stack.navigate('SignUp')
 
     return(
    
-      <View style={{flexDirection:'row' ,marginTop:40}}>
+      <View style={{flexDirection:'row' ,marginTop:10}}>
   
        <TouchableOpacity onPress={gotoSignUp}>
 

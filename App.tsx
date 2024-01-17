@@ -16,13 +16,11 @@ function App(): React.JSX.Element {
   return (
     <View style={styles.container}>
 
- {/* <LoginScreen/> */}
- 
- {/* <SignUpScreen/> */}
 
- {/* <AppNavigation/> */}
 
-   <TextNavigation/>
+ <AppNavigation/>
+
+
     </View>
   );
 }
