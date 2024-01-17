@@ -6,6 +6,11 @@ import LoginScreen from './src/screens/LoginScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigation from './src/navigation/AppNavigation';
+import 'react-native-gesture-handler';
+import MainScreen from './src/navigation_examples/MainScreen';
+import TextNavigation from './src/navigation_examples/TextNavigation';
+
+
 
 function App(): React.JSX.Element {
   return (
@@ -15,7 +20,9 @@ function App(): React.JSX.Element {
  
  {/* <SignUpScreen/> */}
 
- <AppNavigation/>
+ {/* <AppNavigation/> */}
+
+   <TextNavigation/>
     </View>
   );
 }
