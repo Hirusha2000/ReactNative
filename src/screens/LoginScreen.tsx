@@ -5,6 +5,7 @@ import { Icon, ThemeConsumer } from '@rneui/themed';
 import { TouchableOpacity } from 'react-native';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseinit';
+import { ActivityIndicator } from 'react-native-paper';
 
 
 
@@ -18,7 +19,7 @@ function LoginField(props:any){
 
     return(
   <View style={{marginTop:60}}>
-  <View style={{ backgroundColor:'white',
+  <View style={{ backgroundColor:'gray',
   borderRadius:20,
   height:60,
   marginHorizontal:30,
@@ -35,7 +36,7 @@ function LoginField(props:any){
   
   </View>
   
-  <View style={{ backgroundColor:'white',
+  <View style={{ backgroundColor:'gray',
   borderRadius:20,
   height:60,
   marginHorizontal:30,
@@ -70,6 +71,7 @@ function SingnInButton(p:any) {
 const u_email=p.u_email;
 const u_password=p.u_password;
 
+const [isLogging,setIsLogin]=useState(false);
 
 
 
@@ -79,6 +81,8 @@ function getUser (){
       collection(db,'Users')
       ,where('email','==',u_email.toLowerCase()))) 
       .then(ds=>{
+
+        setIsLogin(false);
 if(ds.size==1){
   const dt =ds.docs[0].data();
 
@@ -93,6 +97,9 @@ if(ds.size==1){
   Alert .alert('Message',"Can't find user!")
 }
 
+      }).catch(e=>{
+        setIsLogin(false);
+        Alert .alert('Error',"Login Fail!")
       })
 
 }
@@ -100,16 +107,7 @@ if(ds.size==1){
 
 
   function gotoHome(){
-//     if(u_email.toLowerCase()==email &&  u_password==password ){
-
-  
-// p.s_stack.navigate('Home')
-// } else{
-
-//   Alert .alert('Message','Incorrect Password or Email')
-//   console.log('Incorrect Password or Email');
-// }
-
+setIsLogin(true);
 getUser();
 
 
@@ -127,7 +125,19 @@ getUser();
 
  <View style={{width:50,height:50,backgroundColor:'#367cfe',marginRight:50 ,borderRadius:100
   ,justifyContent:'center',alignItems:'center'}}>
-  <Icon size={50} color={'white'} name={'chevron-right'} type='FontAwesome'/>
+
+    {
+
+      (isLogging)?<ActivityIndicator color='white'/>
+      :<Icon size={50} color={'white'} name={'chevron-right'} type='FontAwesome'/>
+    }
+  {/* <Icon size={50} color={'white'} name={'chevron-right'} type='FontAwesome'/> */}
+
+
+
+
+
+
   
   </View>
  </TouchableOpacity>
@@ -209,8 +219,9 @@ const styles = StyleSheet.create({
   color:'white',
   fontWeight:'600',
   marginTop:100,
-  marginLeft:30
+  marginLeft:30,
+  fontFamily:"Lobster-Regular.ttf"
   
-  
+
     }
   })

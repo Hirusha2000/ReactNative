@@ -9,11 +9,25 @@ import AppNavigation from './src/navigation/AppNavigation';
 import 'react-native-gesture-handler';
 import MainScreen from './src/navigation_examples/MainScreen';
 import TextNavigation from './src/navigation_examples/TextNavigation';
+import { DefaultTheme, PaperProvider } from 'react-native-paper';
 
 
 
 function App(): React.JSX.Element {
+
+
+  const theme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: 'orrange',
+      secondary: 'yellow',
+    },
+  };
+
   return (
+
+    <PaperProvider>
     <View style={styles.container}>
 
 
@@ -22,6 +36,7 @@ function App(): React.JSX.Element {
 
 
     </View>
+    </PaperProvider>
   );
 }
 
