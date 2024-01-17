@@ -17,7 +17,7 @@ function LoginField(props:any){
 
 
     return(
-  <View style={{marginTop:30}}>
+  <View style={{marginTop:60}}>
   <View style={{ backgroundColor:'white',
   borderRadius:20,
   height:60,
@@ -82,8 +82,6 @@ function getUser (){
 if(ds.size==1){
   const dt =ds.docs[0].data();
 
-  Alert.alert (dt.password);
-
   if(dt.password==u_password){
     p.s_stack.navigate('Home')
   } else{
@@ -117,11 +115,11 @@ getUser();
 
   }
     return(
-      <View style={{flexDirection:'row' ,marginTop:20}}>
+      <View style={{flexDirection:'row' ,marginTop:110}}>
   
   
         <View style={{height:70, flex:1, justifyContent:'center'}}>
-  <Text style={{fontSize:25, color:'black',marginLeft:50,fontWeight:'800'}}>Sign In</Text>
+  <Text style={{fontSize:25, color:'white',marginLeft:50,fontWeight:'800'}}>Sign In</Text>
         </View>
         <View style={{height:70, flex:1,justifyContent:'center',alignItems:'flex-end'}}>
   
@@ -150,12 +148,12 @@ stack.navigate('SignUp')
 
     return(
    
-      <View style={{flexDirection:'row' ,marginTop:10}}>
+      <View style={{flexDirection:'row' ,marginTop:40}}>
   
        <TouchableOpacity onPress={gotoSignUp}>
 
         <View style={{height:70, flex:1, justifyContent:'center'}}>
-  <Text style={{fontSize:18, color:'black',marginLeft:50,fontWeight:'400'}}>Sign Up</Text>
+  <Text style={{fontSize:18, color:'white',marginLeft:50,fontWeight:'400'}}>Sign Up</Text>
         </View>
         </TouchableOpacity>
         <View style={{height:70, flex:1, justifyContent:'center',alignItems:'flex-end'}}>
@@ -178,11 +176,11 @@ const LoginScreen = (props:any) => {
     
         <Image
             style={styles.image}
-            source={require('../../assets/img/balo.jpg')}
+            source={require('../../assets/img/kottu.jpg')}
             resizeMode='cover'
           />
     
-          <Text style={styles.welText}>{'Welcome\nBack'}</Text>
+          <Text style={styles.welText}>{'MR.\nKOTTU'}</Text>
          
           <KeyboardAwareScrollView keyboardShouldPersistTaps={'never'}>
           <LoginField stack={stack}/>
@@ -208,9 +206,9 @@ const styles = StyleSheet.create({
   
     welText:{
   fontSize:50,
-  color:'#3A8BF8',
+  color:'white',
   fontWeight:'600',
-  marginTop:120,
+  marginTop:100,
   marginLeft:30
   
   
