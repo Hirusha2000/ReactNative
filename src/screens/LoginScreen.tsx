@@ -18,8 +18,9 @@ function LoginField(props:any){
 
 
     return(
-  <View style={{marginTop:60}}>
-  <View style={{ backgroundColor:'gray',
+  <View style={{marginTop:160}}>
+  <View style={{  backgroundColor: 'rgba(169, 169, 169, 0.8)',
+ 
   borderRadius:20,
   height:60,
   marginHorizontal:30,
@@ -27,16 +28,16 @@ function LoginField(props:any){
   paddingLeft:20
   }}>
   <TextInput placeholder='Your Email' 
-  placeholderTextColor={'#265CA5'}
+  placeholderTextColor={'#666'}
   onChangeText={(v)=>setUserEmail(v)}
   style={{
-    fontSize:15
+    fontSize:15, color:'black'
   }}
   />
   
   </View>
   
-  <View style={{ backgroundColor:'gray',
+  <View style={{backgroundColor: 'rgba(169, 169, 169, 0.8)',
   borderRadius:20,
   height:60,
   marginHorizontal:30,
@@ -46,10 +47,10 @@ function LoginField(props:any){
   }}>
   <TextInput placeholder='Password' 
   secureTextEntry={true}
-  placeholderTextColor={'#265CA5'}
+  placeholderTextColor={'#666'}
   onChangeText={(v)=>setUserPassword(v)}
   style={{
-    fontSize:15
+    fontSize:15, color:'black'
   }}
   />
   
@@ -113,17 +114,17 @@ getUser();
 
   }
     return(
-      <View style={{flexDirection:'row' ,marginTop:110}}>
+      <View style={{flexDirection:'row' ,marginTop:120}}>
   
   
         <View style={{height:70, flex:1, justifyContent:'center'}}>
-  <Text style={{fontSize:25, color:'white',marginLeft:50,fontWeight:'800'}}>Sign In</Text>
+  <Text style={{fontSize:25, color:'white',marginLeft:115,fontWeight:'800'}}>Sign In</Text>
         </View>
         <View style={{height:70, flex:1,justifyContent:'center',alignItems:'flex-end'}}>
   
  <TouchableOpacity activeOpacity={0.7} onPress={gotoHome}>
 
- <View style={{width:50,height:50,backgroundColor:'#367cfe',marginRight:50 ,borderRadius:100
+ <View style={{width:50,height:50,backgroundColor:'#367cfe',marginRight:130 ,borderRadius:100
   ,justifyContent:'center',alignItems:'center'}}>
 
     {
@@ -158,7 +159,7 @@ stack.navigate('SignUp')
 
     return(
    
-      <View style={{flexDirection:'row' ,marginTop:40}}>
+      <View style={{flexDirection:'row' ,marginTop:60}}>
   
        <TouchableOpacity onPress={gotoSignUp}>
 
@@ -167,7 +168,7 @@ stack.navigate('SignUp')
         </View>
         </TouchableOpacity>
         <View style={{height:70, flex:1, justifyContent:'center',alignItems:'flex-end'}}>
-  <Text style={{fontSize:15, color:'red',marginRight:50,fontWeight:'800'}}>Forget Password</Text>
+  <Text style={{fontSize:15, color:'#C13F23',marginRight:50,fontWeight:'500'}}>Forget Password</Text>
         </View> 
        
       </View>
@@ -186,11 +187,11 @@ const LoginScreen = (props:any) => {
     
         <Image
             style={styles.image}
-            source={require('../../assets/img/kottu.jpg')}
+            source={require('../../assets/img/kottub.jpg')}
             resizeMode='cover'
           />
     
-          <Text style={styles.welText}>{'MR.\nKOTTU'}</Text>
+          <Text style={styles.welText}>{'MR.KOTTU'}</Text>
          
           <KeyboardAwareScrollView keyboardShouldPersistTaps={'never'}>
           <LoginField stack={stack}/>
@@ -215,12 +216,12 @@ const styles = StyleSheet.create({
     },
   
     welText:{
+      textAlign:'center',
   fontSize:50,
   color:'white',
   fontWeight:'600',
   marginTop:100,
-  marginLeft:30,
-  fontFamily:"Lobster-Regular.ttf"
+  fontFamily:"Lobster-Regular"
   
 
     }

@@ -27,7 +27,7 @@ function App(): React.JSX.Element {
 
   return (
 
-    <PaperProvider>
+    <PaperProvider theme={theme}>
     <View style={styles.container}>
 
 

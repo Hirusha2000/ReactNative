@@ -8,8 +8,8 @@ import { Icon } from '@rneui/themed';
 function SignUpSection(){
 
     return(
-  <View style={{marginTop:20}}>
-  <View style={{ backgroundColor:'white',
+  <View style={{marginTop:100}}>
+  <View style={{  backgroundColor: 'rgba(169, 169, 169, 0.8)',
   borderRadius:20,
   height:60,
   marginHorizontal:30,
@@ -17,15 +17,15 @@ function SignUpSection(){
   paddingLeft:20
   }}>
   <TextInput placeholder='Name' 
-  placeholderTextColor={'#265CA5'}
+  placeholderTextColor={'#666'}
   style={{
-    fontSize:15
+    fontSize:15, color:'black'
   }}
   />
   
   </View>
   
-  <View style={{ backgroundColor:'white',
+  <View style={{ backgroundColor: 'rgba(169, 169, 169, 0.8)',
   borderRadius:20,
   height:60,
   marginHorizontal:30,
@@ -34,15 +34,15 @@ function SignUpSection(){
   marginTop:20
   }}>
   <TextInput placeholder='Your Email' 
-  placeholderTextColor={'#265CA5'}
+  placeholderTextColor={'#666'}
   style={{
-    fontSize:15
+    fontSize:15, color:'black'
   }}
   />
   
   </View>
 
-  <View style={{ backgroundColor:'white',
+  <View style={{ backgroundColor: 'rgba(169, 169, 169, 0.8)',
   borderRadius:20,
   height:60,
   marginHorizontal:30,
@@ -51,9 +51,9 @@ function SignUpSection(){
   marginTop:20
   }}>
   <TextInput placeholder='Password' 
-  placeholderTextColor={'#265CA5'}
+  placeholderTextColor={'#666'}
   style={{
-    fontSize:15
+    fontSize:15, color:'black'
   }}
   />
   
@@ -70,15 +70,15 @@ function SignUpSection(){
   
 function SingnUpButton() {
     return(
-      <View style={{flexDirection:'row' ,marginTop:20}}>
+      <View style={{flexDirection:'row' ,marginTop:120}}>
   
   
         <View style={{height:70, flex:1, justifyContent:'center'}}>
-  <Text style={{fontSize:25, color:'black',marginLeft:50,fontWeight:'800'}}>Sign Up</Text>
+  <Text style={{fontSize:25, color:'white',marginLeft:100,fontWeight:'800'}}>Sign Up</Text>
         </View>
         <View style={{height:70, flex:1,justifyContent:'center',alignItems:'flex-end'}}>
   
-  <View style={{width:50,height:50,backgroundColor:'#367cfe',marginRight:50 ,borderRadius:100
+  <View style={{width:50,height:50,backgroundColor:'#367cfe',marginRight:130 ,borderRadius:100
   ,justifyContent:'center',alignItems:'center'}}>
   <Icon size={50} color={'white'} name={'chevron-right'} type='FontAwesome'/>
   
@@ -93,12 +93,12 @@ function SingnUpButton() {
   
   function BottomSection() {
     return(
-      <View style={{flexDirection:'row' ,marginTop:20}}>
+      <View style={{flexDirection:'row' ,marginTop:30}}>
   
 
   
-        <View style={{height:70, flex:1, justifyContent:'center',alignItems:'flex-end'}}>
-  <Text style={{fontSize:15, color:'red',marginRight:50,fontWeight:'800'}}>Sign In</Text>
+        <View style={{height:70, flex:1, justifyContent:'center',}}>
+  <Text style={{fontSize:15, color:'#B6A5A1',fontWeight:'800',textAlign:'center'}}>Already have an account ? Then, Sign In</Text>
         </View> 
        
       </View>
@@ -114,11 +114,11 @@ const SignUpScreen = () => {
     
         <Image
             style={styles.image}
-            source={require('../../assets/img/balo.jpg')}
+            source={require('../../assets/img/kottu.jpg')}
             resizeMode='cover'
           />
     
-          <Text style={styles.welText}>{'Create\nAccount'}</Text>
+          <Text style={styles.welText}>{'Create Account'}</Text>
          
           <KeyboardAwareScrollView keyboardShouldPersistTaps={'never'}>
           <SignUpSection/>
@@ -143,11 +143,12 @@ const styles = StyleSheet.create({
     },
   
     welText:{
+      textAlign:'center',
   fontSize:50,
-  color:'#3A8BF8',
+  color:'white',
   fontWeight:'600',
-  marginTop:120,
-  marginLeft:30
+  marginTop:100,
+  fontFamily:"Lobster-Regular"
   
   
     }
