@@ -1,11 +1,12 @@
 import { Alert, Image, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Icon, ThemeConsumer } from '@rneui/themed';
 import { TouchableOpacity } from 'react-native';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseinit';
 import { ActivityIndicator } from 'react-native-paper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
@@ -88,6 +89,11 @@ if(ds.size==1){
   const dt =ds.docs[0].data();
 
   if(dt.password==u_password){
+
+
+    AsyncStorage.setItem('email',u_email.toLowerCase());
+  
+  
     p.s_stack.navigate('Home')
   } else{
     Alert .alert('Message','Incorrect Password or Email')
@@ -179,7 +185,19 @@ stack.navigate('SignUp')
 
 const LoginScreen = (props:any) => {
 
+ 
     const stack=props.navigation;
+    useEffect (()=>{
+      console.log('welcome to login');
+      AsyncStorage.getItem('email').then(t=>{
+        console.log(t);
+        if(t){
+        stack.navigate('Home')
+        }
+      })
+    
+    },[])
+  
 
   return (
     
